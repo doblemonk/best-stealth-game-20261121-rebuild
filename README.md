@@ -1,76 +1,65 @@
 # Shadow Vault
 
-[![make.fun · best-stealth-game-20261121-1759](https://make.fun/badge/best-stealth-game-20261121-1759.svg)](https://make.fun/bounty/best-stealth-game-20261121-1759?utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759)
-[![rank](https://make.fun/badge/best-stealth-game-20261121-1759/doblemonk/best-stealth-game-20261121-rebuild/rank.svg)](https://make.fun/bounty/best-stealth-game-20261121-1759/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759)
-[![reward](https://make.fun/badge/best-stealth-game-20261121-1759/doblemonk/best-stealth-game-20261121-rebuild/reward.svg)](https://make.fun/bounty/best-stealth-game-20261121-1759?utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759)
+[![Bounty](https://make.fun/badges/bounty/best-stealth-game-20261121-1759.svg?utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759)](https://make.fun/competitions/best-stealth-game-20261121-1759)
+[![Rank](https://make.fun/badges/rank/best-stealth-game-20261121-1759.svg?utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759)](https://make.fun/competitions/best-stealth-game-20261121-1759)
+[![Reward](https://make.fun/badges/reward/best-stealth-game-20261121-1759.svg?utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759)](https://make.fun/competitions/best-stealth-game-20261121-1759)
 
-Built for the [make.fun "Make the best stealth game" bounty](https://make.fun/bounty/best-stealth-game-20261121-1759).
-
-A complete top-down stealth game that plays offline in a desktop browser from
-its own static files — no libraries, no network, no external assets. All art is
-drawn in code on canvas; all sounds are tiny synthesised WebAudio beeps.
+Built for the make.fun "Make the best stealth game" bounty. A complete
+top-down stealth game that runs offline in a desktop browser from static
+files: no libraries, no network, all art drawn in code, all sounds
+synthesised with WebAudio.
 
 ## The game
 
-You are a thief in a museum vault at night. Steal the golden idol and reach
-the green exit unseen.
+You are a thief in a museum vault at night. Steal the golden idol and
+reach the green exit unseen. Three guards — Rook, Bishop and Knight —
+patrol the hall with visible vision cones and flashlight beams. Cover
+(crates, display cases, pillars) blocks their line of sight, and shadow
+zones slow the alarm. Two sweeping security cameras add a second threat:
+their beams fill the alarm too. The alarm meter fills while you are
+seen and drains while you stay hidden; a full alarm sends every guard
+chasing you. Loot is the golden idol plus three gems.
 
-- **Three guards** — Rook, Bishop and Knight — patrol fixed routes with visible
-  vision cones. Learn their patrols and slip through the gaps.
-- **Cover** — crates, display cases and pillars block a guard's line of sight.
-  **Shadow zones** slow how fast the alarm fills while you hide in them.
-- **The alarm meter** fills while a guard can see you and drains while you are
-  hidden. A full alarm sends every guard chasing you for a few seconds. If a
-  guard touches you, the run is over.
-- **Loot** — the golden idol plus three gems scattered around the museum.
-  Grabbing the idol changes the objective to the getaway.
-- One level on a single 1280×720 screen, with a title screen, pause, win
-  ("CLEAN GETAWAY") and lose ("CAUGHT") screens, a HUD (alarm meter, loot,
-  timer, objective) and a best-time record kept in the browser.
+One level on a single 1280x720 screen. Title, pause, win ("CLEAN
+GETAWAY") and lose ("CAUGHT") screens, a HUD with the alarm meter,
+loot, timer and objective, and a best-time record.
 
 ## Controls
 
 - **WASD / arrow keys** — move
-- **Mouse click** — walk to the clicked point (click-to-move)
-- **R** — restart the run
-- **Space / Enter** — start, or confirm on the win/lose screens
+- **Mouse click** — walk to that spot
+- **R** — restart
+- **Space / Enter** — start / confirm
 - **P / Esc** — pause
 
 ## Files
 
-- `game/index.html` — the page; loads everything from under `game/`
-- `game/src/config.js` — tuning numbers, colours and the level layout (walls,
-  cover, shadows, patrols, autopilot routes)
-- `game/src/world.js` — the rules: movement and collision, line of sight,
-  vision cones, the alarm, guard patrol/chase/return AI, pickups, win/lose
-- `game/src/input.js` — keyboard plus click-to-move (`poll(player.x, player.y)`)
-- `game/src/render.js` — all canvas drawing: floor, walls, cover, cones,
-  thief, HUD and screens
-- `game/src/audio.js` — synthesised WebAudio beeps (footsteps, pickups, alarm,
-  win/lose)
-- `game/src/shots.js` — the deterministic screenshot autopilot behind
-  `?shot=1..4`, which threads the door gaps and flees from chases
-- `game/src/main.js` — boot and the fixed-step game loop
-- `main.ts` — the hand-in program (Node 22, standard library only): copies
-  `game/` and `screenshots/` to the output directory and writes
-  `dossier.json` with `vendor/makefun-game.ts`
-- `screenshots/` — 1 title/patrol, 2 mid-heist near the idol, 3 idol secured,
-  4 CLEAN GETAWAY win at the exit
+- `game/index.html` — the game page
+- `game/src/config.js` — tuning: speeds, alarm rates, guard patrols
+- `game/src/world.js` — the vault layout, guards, cameras, loot
+- `game/src/input.js` — keyboard and mouse controls
+- `game/src/render.js` — all drawing: vault, cones, beams, HUD
+- `game/src/audio.js` — synthesised WebAudio sound effects
+- `game/src/shots.js` — scripted screenshot scenes
+- `game/src/main.js` — game loop and state machine
+- `main.ts` — the make.fun hand-in program (copies the game and
+  screenshots to the output directory and writes `dossier.json`)
+- `screenshots/` — 1 title/patrol with a camera beam, 2 mid-heist
+  dodging a camera beam near the idol, 3 idol secured, 4 CLEAN
+  GETAWAY win at the exit
 
 ## Play it
 
+Serve the repo root with any static server and open
+`game/index.html`, for example:
+
 ```sh
-python3 -m http.server 8080 --directory game
+python3 -m http.server
+# then open http://localhost:8000/game/index.html
 ```
 
-Open http://localhost:8080 in desktop Chrome.
+Or run the hand-in program to build the submission bundle:
 
-## Screenshots
-
-The autopilot stages each shot from the real rules (`?shot=1` … `?shot=4`,
-see `shots.json`), so every screenshot is a genuine render of the game's own
-code — no editing, no compositing.
-
-## License
-
-MIT — see `LICENSE`.
+```sh
+node main.ts
+```
