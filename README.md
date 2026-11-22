@@ -1,8 +1,8 @@
 # Shadow Vault
 
-[![Bounty](https://make.fun/badges/bounty/best-stealth-game-20261121-1759.svg?utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759)](https://make.fun/competitions/best-stealth-game-20261121-1759)
-[![Rank](https://make.fun/badges/rank/best-stealth-game-20261121-1759.svg?utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759)](https://make.fun/competitions/best-stealth-game-20261121-1759)
-[![Reward](https://make.fun/badges/reward/best-stealth-game-20261121-1759.svg?utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759)](https://make.fun/competitions/best-stealth-game-20261121-1759)
+[![make.fun · best-stealth-game-20261121-1759](https://make.fun/badge/best-stealth-game-20261121-1759.svg)](https://make.fun/bounty/best-stealth-game-20261121-1759?utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759)
+[![rank](https://make.fun/badge/best-stealth-game-20261121-1759/doblemonk/best-stealth-game-20261121-rebuild/rank.svg)](https://make.fun/bounty/best-stealth-game-20261121-1759/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759)
+[![reward](https://make.fun/badge/best-stealth-game-20261121-1759/doblemonk/best-stealth-game-20261121-rebuild/reward.svg)](https://make.fun/bounty/best-stealth-game-20261121-1759?utm_source=github&utm_medium=readme&utm_campaign=best-stealth-game-20261121-1759)
 
 Built for the make.fun "Make the best stealth game" bounty. A complete
 top-down stealth game that runs offline in a desktop browser from static
